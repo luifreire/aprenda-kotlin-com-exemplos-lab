@@ -1,21 +1,41 @@
 // [Template no Kotlin Playground](https://pl.kotl.in/WcteahpyN)
 
-enum class Nivel { BASICO, INTERMEDIARIO, DIFICIL }
+data class User(val name: String)
 
-class Usuario
-
-data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
-
-data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
-
-    val inscritos = mutableListOf<Usuario>()
+fun mainn () {
+    val user1 = User("Mariana")
+    val user2 = User("Fernanda")
+    val user3 = User("Lua")
     
-    fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
-    }
+    println("user1, user2, user3")
+
 }
 
+data class Fundamento(val conteudo: String) {
+     var duracao: Int = 0
+}                             
 fun main() {
-    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
+
+    val fundamento1 = Fundamento("herança")
+    val fundamento2 = Fundamento("polimorfismo")
+    fundamento1.duracao = 15
+    fundamento2.duracao = 10
+    
+    
+    println("fundamento1 == fundamento2: ${fundamento1 == fundamento2}")
+    println("fundamento1 with duration ${fundamento1.duracao}: ${fundamento1}")
+    println("fundamento2 with duration ${fundamento2.duracao}: ${fundamento2}")
+	
+    
+data class formacaoBasic(val nome: String, var conteudos: List<Fundamento>) {
+   
+
+    val inscrito = mutableListOf<User>()
+    
+    fun matricular(vararg User: String) {
+        
+        println("all students have been assigned to their classes")
+       
+	}
+    
 }
